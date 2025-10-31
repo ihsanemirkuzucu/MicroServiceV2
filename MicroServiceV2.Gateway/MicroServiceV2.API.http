@@ -1,0 +1,67 @@
+@baseAddress= http://localhost:5251
+@token=eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ6YlNHMGFvTndpc2RjeElWQk1TYmdabG0yQnJkZ3BHa0ZadkRMR1FvZmxZIn0.eyJleHAiOjE3NTg2NTAyNTIsImlhdCI6MTc1ODY0OTk1MiwianRpIjoiMjM4ZDI0MjAtMzA4Yy00OGU2LWE2NDYtNWJkZmI5NWM0NGNjIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9NaWNyb1NlcnZpY2VUZW5hbnQiLCJhdWQiOlsiZmlsZS5hcGkiLCJiYXNrZXQuYXBpIiwiZGlzY291bnQuYXBpIiwicGF5bWVudC5hcGkiLCJjYXRhbG9nLmFwaSIsImdhdGV3YXkuYXBpIiwib3JkZXIuYXBpIiwiYWNjb3VudCJdLCJzdWIiOiJjMWVhOTRhOS1kMDhmLTRhZGYtYWM3ZS0xMGU4OGUxOWZhOWUiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ3ZWIiLCJzaWQiOiI3ZjkwNDdjOS1hM2RiLTRlOTktODY0YS0wMGQyNWU4NmNiYjkiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIi8qIl0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InBob25lIHByb2ZpbGUgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInJvbGVzIjpbImRlZmF1bHQtcm9sZXMtbWljcm9zZXJ2aWNldGVuYW50IiwiaW5zdHJ1Y3RvciIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXSwibmFtZSI6IsSwaHNhbiBFbWlyIEt1enVjdSIsInByZWZlcnJlZF91c2VybmFtZSI6ImllbWlyMDMiLCJnaXZlbl9uYW1lIjoixLBoc2FuIEVtaXIiLCJmYW1pbHlfbmFtZSI6Ikt1enVjdSIsImVtYWlsIjoiaWhzYW5lbWlya3V6dWN1NDRAZ21haWwuY29tIn0.ER9291iDOP5EoGOriIOMlBWZ1aYDfb2lzoqqfWxNwFjVERtZXgF6AF9JX0RtyA7xxDFT9a89jRQjBqG3Y8roMqVnkzuB1M009E_b1HijrhbjnfVaSzeRT5KrWEkZ8n1HYXXP70AvNcYxdxuffdG-0YdmB5etsTGfYppYl1jpis7AK_7qdBScGj8UV9_6eAV7nsyEkZJ3cZzVNoXy-s1Ggang6k1g2oIR1jipDEu7hgqBWjGNe9mev4qAKPvyAURI6XbcayasXw6_dFvGHq9C786T8ZshOAX4i_GkELOGeZVySRYBlm8wY7pkiNQChE3L36VsEDCA7jlA-AD9FJ5BIw
+@courseId=08ddf6b0-91d0-ce6e-5d4a-7512ac260000
+### Basket Service - Get User Basket
+GET {{baseAddress}}/v1/baskets/user
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### Basket Service - Add Item to Basket
+POST {{baseAddress}}/v1/baskets/item
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+{
+  "courseId":"{{courseId}}",
+  "courseName": "Python",
+  "coursePrice": 300
+}
+
+
+### Order Service - Create Order
+POST {{baseAddress}}/v1/orders
+Content-Type: application/json
+Authorization: Bearer {{token}}
+Accept: application/json
+{
+  "Address": {
+    "Line": "123 Main St",
+    "Province": "Ontario",
+    "District": "Toronto",
+    "ZipCode": "12345",
+    "Street": "Main St"
+  },
+  "Payment": {
+    "CardNumber": "4111111111111111",
+    "CardHolderName": "John Doe",
+    "Expiration": "12/25",
+    "Cvc": "123",
+    "Amount": 150.75
+  },
+  "Items": [
+    {
+      "ProductId": "{{courseId}}",
+      "ProductName": "Python",
+      "UnitPrice": 300
+    }
+  ]
+}
+
+### Create a Payment
+POST {{baseAddress}}/v1/payments
+Content-Type: application/json
+Accept: application/json,
+Authorization: Bearer {{token}}
+{
+  "OrderCode": "6657c883-2e9b-43e4-a421-45f9ef25b415",
+  "CardNumber": "4111111111111111",
+  "CardHolderName": "John Doe",
+  "CardExpirationDate": "12/25",
+  "CardSecurityNumber": "123",
+  "Amount": 150.75
+}
+
+### Get All Payments
+GET {{baseAddress}}/v1/payments
+Accept: application/json
+###

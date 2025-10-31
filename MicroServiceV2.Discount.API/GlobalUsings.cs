@@ -1,0 +1,14 @@
+﻿global using AutoMapper;
+global using FluentValidation;
+global using MassTransit;
+global using MediatR;
+global using MicroServiceV2.Bus;
+global using MicroServiceV2.Discount.API.Features.Discounts;
+global using MicroServiceV2.Discount.API.Options;
+global using MicroServiceV2.Discount.API.Repositories;
+global using MicroServiceV2.Shared;
+global using MicroServiceV2.Shared.Extensions;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
+global using MongoDB.Driver;
+global using System.Net;

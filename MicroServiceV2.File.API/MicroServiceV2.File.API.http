@@ -1,0 +1,20 @@
+@baseAddress = http://localhost:5271
+@fileName = example.txt
+
+POST {{baseAddress}}/api/v1.0/files
+Content-Type: multipart/form-data; boundary=------------------------abcdef123456
+
+--------------------------abcdef123456
+Content-Disposition: form-data; name="file"; filename="example.txt"
+Content-Type: text/plain
+
+This is an example file content.
+--------------------------abcdef123456--
+###
+
+DELETE {{baseAddress}}/api/v1.0/files/
+Content-Type: application/json
+{
+  "fileName": "{{fileName}}"
+}
+###

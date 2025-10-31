@@ -1,0 +1,15 @@
+@baseAddress = http://localhost:5263
+@code = 1234567890
+
+POST {{baseAddress}}/api/v1.0/discounts
+Accept: application/json
+Content-Type: application/json
+{
+  "code": {{code}},
+  "rate": 1.0,
+  "userId": "8f130000-f758-54be-7435-08ddd0d9231e",
+  "expireDate": "2025-09-01T19:16:46.000Z"
+}
+###
+GET {{baseAddress}}/api/v1.0/discounts/{{code}}
+Accept: application/json

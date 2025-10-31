@@ -1,0 +1,14 @@
+﻿global using AutoMapper;
+global using FluentValidation;
+global using MassTransit;
+global using MediatR;
+global using MicroServiceV2.Basket.API.Data;
+global using MicroServiceV2.Basket.API.Dtos;
+global using MicroServiceV2.Basket.API.Features.Baskets;
+global using MicroServiceV2.Shared;
+global using MicroServiceV2.Shared.Extensions;
+global using MicroServiceV2.Shared.Filters;
+global using MicroServiceV2.Shared.Services;
+global using System.Net;
+global using System.Text.Json;
+global using System.Text.Json.Serialization;

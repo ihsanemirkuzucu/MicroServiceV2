@@ -1,0 +1,10 @@
+﻿global using FluentValidation;
+global using MassTransit;
+global using MediatR;
+global using MicroServiceV2.Payment.API.Repositories;
+global using MicroServiceV2.Shared;
+global using MicroServiceV2.Shared.Extensions;
+global using MicroServiceV2.Shared.Services;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
+global using System.Net;

@@ -1,0 +1,40 @@
+@baseAddress = http://localhost:5135
+
+
+POST {{baseAddress}}/api/v1.0/orders
+Accept: application/json
+Content-Type: application/json
+{
+  "discountRate": 10,
+  "addressDto": {
+    "province": "Ontario",
+    "district": "Toronto",
+    "street": "Main St.",
+    "zipCode": "12345",
+    "line": "123 Main St."
+  },
+  "paymentDto": {
+    "cardNumber": "111111111111111",
+    "cardHolderName": "Ahmet Yýlmaz",
+    "expiration": "12/25",
+    "cvc": "123",
+    "amount": 150.75
+  },
+  "Items": [
+    {
+      "ProductId": "3762ff3a-4b07-4918-b478-d58df7edbffe",
+      "ProductName": "Course 1",
+      "UnitPrice": 100
+    },
+    {
+      "ProductId": "b1acc2a7-d4bc-4ea2-ae11-ac2800548e82",
+      "ProductName": "Course 2",
+      "UnitPrice": 200
+    }
+  ]
+}
+###
+
+GET {{baseAddress}}/api/v1.0/orders
+ACCEPT: application/json
+###
